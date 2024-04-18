@@ -20,6 +20,9 @@ form.addEventListener('input', event => {
 form.addEventListener('submit', event => {
   event.preventDefault();
   const result = localStorage.getItem('feedback-form-state');
+  if (!result.email || !result.message) {
+    return alert('Fill please all fields');
+  }
   console.log(JSON.parse(result));
   localStorage.clear();
   form.reset();
